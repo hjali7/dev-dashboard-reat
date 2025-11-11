@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تب جدید</title>
+    <title>LoopArc</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="newtab.css">
 </head>
 <body>
     
     <div class="background-overlay"></div>
+    <div class="animated-bg"></div>
 
+    <!-- سوییچ تم -->
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="theme-toggle">
             <input type="checkbox" id="theme-toggle">
@@ -19,76 +21,184 @@
         </label>
     </div>
 
-    <div id="root" class="root-container">
-        <div class="grid-container">
-            
-            <div classs="main-column">
-                <form action="https://www.google.com/search" method="GET" target="_blank" class="search-form">
-                    <input 
-                        type="text" 
-                        name="q"
-                        placeholder="جستجو در گوگل..."
-                        class="search-input"
-                    >
+    <!-- پروفایل کاربر و دسترسی سریع -->
+    <div class="user-profile">
+        <div class="profile-avatar" id="profile-avatar" title="حساب کاربری">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+        <div class="google-apps">
+            <button class="apps-btn" id="apps-btn" title="برنامه‌های گوگل">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                    <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                    <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                    <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                </svg>
+            </button>
+            <div class="apps-menu" id="apps-menu">
+                <a href="https://mail.google.com" target="_blank" class="app-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span>Gmail</span>
+                </a>
+                <a href="https://drive.google.com" target="_blank" class="app-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.35 10.04L16.49 5.5c-.29-.49-.82-.8-1.39-.8H8.9c-.57 0-1.1.31-1.39.8L4.65 10.04c-.29.49-.29 1.1 0 1.59l2.86 4.54c.29.49.82.8 1.39.8h6.2c.57 0 1.1-.31 1.39-.8l2.86-4.54c.29-.49.29-1.1 0-1.59zM12 17.5L6.5 12 12 6.5 17.5 12 12 17.5z"/>
+                    </svg>
+                    <span>Drive</span>
+                </a>
+                <a href="https://calendar.google.com" target="_blank" class="app-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/>
+                    </svg>
+                    <span>Calendar</span>
+                </a>
+                <a href="https://docs.google.com" target="_blank" class="app-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    <span>Docs</span>
+                </a>
+                <a href="https://sheets.google.com" target="_blank" class="app-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                    </svg>
+                    <span>Sheets</span>
+                </a>
+                <a href="https://meet.google.com" target="_blank" class="app-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+                    </svg>
+                    <span>Meet</span>
+                </a>
+                <a href="https://photos.google.com" target="_blank" class="app-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                    </svg>
+                    <span>Photos</span>
+                </a>
+                <a href="https://translate.google.com" target="_blank" class="app-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+                    </svg>
+                    <span>Translate</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ابزارهای توسعه‌دهنده -->
+    <div class="dev-tools">
+        <button class="tool-btn" id="json-formatter-btn" title="JSON Formatter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>
+            </svg>
+            JSON
+        </button>
+        <button class="tool-btn" id="base64-btn" title="Base64 Encoder/Decoder">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            Base64
+        </button>
+        <button class="tool-btn" id="api-tester-btn" title="API Tester">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            API
+        </button>
+        <button class="tool-btn" id="color-picker-btn" title="Color Picker">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+            Color
+        </button>
+        <button class="tool-btn" id="regex-btn" title="Regex Tester">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="4" y1="9" x2="20" y2="9"></line>
+                <line x1="4" y1="15" x2="20" y2="15"></line>
+                <line x1="10" y1="3" x2="8" y2="21"></line>
+                <line x1="16" y1="3" x2="14" y2="21"></line>
+            </svg>
+            Regex
+        </button>
+    </div>
+
+    <div class="container">
+        <!-- ویجت سمت چپ: کارها -->
+        <div class="sidebar-left">
+            <div class="widget glass-effect">
+                <h3 class="widget-title">کارها</h3>
+                <form id="todo-form" class="todo-form">
+                    <input type="text" id="todo-input" placeholder="کار جدید..." class="todo-input">
+                    <button type="submit" class="todo-add-btn">+</button>
                 </form>
-
-                <div class="links-widget">
-                    <h2 class="section-heading">پیوندهای پرکاربرد</h2>
-                    <div id="links-grid" class="links-grid">
-                        </div>
-                    
-                    <form id="add-link-form" class="add-link-form glass-effect">
-                        <input type="text" id="link-name-input" placeholder="نام پیوند" required>
-                        <input type="url" id="link-url-input" placeholder="آدرس (https://...)" required>
-                        <button type="submit">افزودن</button>
-                    </form>
-                </div>
+                <div id="todo-list" class="todo-list"></div>
             </div>
+        </div>
 
-            <div class="sidebar-column">
+        <!-- بخش مرکزی -->
+        <div class="center-section">
+            <div class="clock-section">
+                <div id="clock-display" class="clock-display">00:00:00</div>
+                <p id="greeting-display" class="greeting-display">...</p>
                 
-                <div class="glass-effect widget-card clock-weather-widget">
-                    <div id="clock-display" class="clock-display">00:00:00</div>
-                    <p id="greeting-display" class="greeting-display">...</p>
-                    <div id="weather-container" class="weather-container">
-                        <p id="weather-loading">...در حال بارگذاری آب و هوا</p>
-                        </div>
-                </div>
-
-                <div class="glass-effect widget-card">
-                    <h2 class="section-heading-center">تایمر پومودورو</h2>
-                    <div id="pomodoro-timer" class="pomodoro-timer">
-                        <div class="pomodoro-visual">
-                            <svg width="150" height="150" viewBox="0 0 120 120">
-                                <circle class="pomo-bg-ring" cx="60" cy="60" r="54"></circle>
-                                <circle class="pomo-progress-ring" cx="60" cy="60" r="54" transform="rotate(-90 60 60)"></circle>
-                            </svg>
-                            <span id="pomo-time-display" class="pomo-time-display">25:00</span>
-                        </div>
-                        <div id="pomo-stage-display" class="pomo-stage-display">آماده‌اید؟</div>
-                        <div class="pomodoro-controls">
-                            <button id="pomo-start-btn" class="widget-button">شروع</button>
-                            <button id="pomo-reset-btn" class="widget-button danger">ریست</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-effect widget-card">
-                    <h2 class="section-heading-center">لیست کارها</h2>
-                    <form id="todo-form" class="todo-form">
-                        <input type="text" id="todo-input" placeholder="کار جدید..." class="widget-input">
-                        <button type="submit" class="widget-button">افزودن</button>
-                    </form>
-                    <div id="todo-list" class="widget-list">
-                        </div>
-                </div>
-
-                <div class="glass-effect widget-card">
-                    <h2 class="section-heading-center">یادداشت سریع</h2>
-                    <textarea id="notes-textarea" placeholder="...یادداشت‌های خود را اینجا بنویسید" class="widget-textarea"></textarea>
+                <!-- آب و هوا زیر ساعت -->
+                <div id="weather-container" class="weather-inline">
+                    <p id="weather-loading">در حال بارگذاری آب و هوا...</p>
                 </div>
             </div>
-            
+
+            <form action="https://www.google.com/search" method="GET" target="_blank" class="search-form">
+                <input 
+                    type="text" 
+                    name="q"
+                    placeholder="جستجو در گوگل..."
+                    class="search-input"
+                    autocomplete="off"
+                >
+            </form>
+
+            <!-- پیوندهای سریع -->
+            <div class="quick-links">
+                <div id="links-grid" class="links-grid"></div>
+            </div>
+
+            <form id="add-link-form" class="add-link-form">
+                <input type="url" id="link-url-input" placeholder="افزودن پیوند جدید..." required>
+                <button type="submit">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+        <!-- ویجت سمت راست: یادداشت -->
+        <div class="sidebar-right">
+            <div class="widget glass-effect">
+                <h3 class="widget-title">یادداشت</h3>
+                <textarea id="notes-textarea" placeholder="یادداشت‌های خود را اینجا بنویسید..." class="notes-textarea"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال‌های ابزارها -->
+    <div id="tool-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">ابزار</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
         </div>
     </div>
 
