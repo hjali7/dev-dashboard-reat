@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "Developer Dashboard",
+    "version": "1.0",
+    "description": "A custom, fast and useful dashboard for developers.",
+    "chrome_url_overrides": {
+      "newtab": "newtab.html"
+    },
+    "permissions": [
+      "storage"
+    ]
+  }
